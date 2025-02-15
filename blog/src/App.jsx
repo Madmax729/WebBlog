@@ -2,14 +2,17 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css'; // Import the Tailwind CSS file
 
-import Home from './pages/home';
+import Home from './pages/Home';
 import './App.css';
 import AppLayout from './components/Layout/AppLayout';
 import About from "./pages/About";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import Chat from "./pages/Chat"
-import Landing from "./pages/Landing";
+import Landing from "./pages/Landing"; 
+
+
+
 
 
 const App = () => {
@@ -43,7 +46,11 @@ const App = () => {
         {
           path: "/landing",
           element: <Landing />
-        }
+        },
+        // {
+        //   path: "/profile",
+        //   element: <Profile />
+        // }
       ]
     }
   ]);

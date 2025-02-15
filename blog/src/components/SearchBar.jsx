@@ -8,7 +8,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-start">
     <input
       type="text"
       placeholder="Search blogs..."

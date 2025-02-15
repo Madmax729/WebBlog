@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { UserContext } from "../context/UserContext";
-import { Heart } from 'lucide-react';
+import { Heart, Link } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Search from "../components/SearchBar"; // Adjust the path as needed
 import CreateBlog from '../components/CreateBlog';
 import { Plus } from "lucide-react";
 import ProfileDropdown from '../components/ProfileDropdown';
 import { User } from "lucide-react";
+// import { Link } from "react-router-dom";
+// import Profile from './Profile';
 
 import { useContext } from "react";
 
@@ -57,6 +59,8 @@ const [selectedCategory, setSelectedCategory] = useState(null);
 const [hoveredBlog, setHoveredBlog] = useState(null);
 const [searchQuery, setSearchQuery] = useState(""); //search query
 // const { User } = useContext(UserContext);
+const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+
 
   const filteredBlogs = selectedCategory
     ? mockBlogs.filter(blog => blog.category === selectedCategory)
@@ -78,17 +82,30 @@ const [searchQuery, setSearchQuery] = useState(""); //search query
               className="border-b border-gray-200 mb-8"
             >
 
+
+                {/* Profile Dropdown */}
+             <div className="relative flex justify-end ">
+            <button onClick={() => setShowProfileDropdown(!showProfileDropdown)}>
+              <User size={32} className="text-gray-900" />
+            </button>
+            {showProfileDropdown && (
+              <div className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg py-2">
+                <a href="/profile" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
+                {/* <Link to="/profile" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</Link> */}
+                <a href="/dashboard" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a>
+                <a href="/logout" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sign Out</a>
+              </div>
+            )}
+          </div>
+
  {/* Search Bar */}
 
- <div className="relative">
-            <Search className="absolute left-3 top-2.5 text-gray-400" size={20} />
-            <input
-            //   type="text"
-            //   placeholder="Search blogs..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            //   className="pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
-            />
+ <div className="relative w-full">
+           <div className=' w-full'>
+
+            <Search className=" w-[400px] " value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+           </div>
+
           </div>
 
 
@@ -114,19 +131,7 @@ const [searchQuery, setSearchQuery] = useState(""); //search query
 
 
 
-             {/* Profile Dropdown */}
-             <div className="relative">
-            <button onClick={() => setShowProfileDropdown(!showProfileDropdown)}>
-              <User size={24} className="text-gray-900" />
-            </button>
-            {showProfileDropdown && (
-              <div className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg py-2">
-                <a href="/profile" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
-                <a href="/dashboard" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a>
-                <a href="/logout" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sign Out</a>
-              </div>
-            )}
-          </div>
+           
        
 
             <AnimatePresence mode="wait">
