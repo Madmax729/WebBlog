@@ -28,12 +28,13 @@ const Home = () => {
 
   return (
     <>
-    <div >
+    <div className='relative min-h-screen w-full' >
     {/* Birds Background Animation */}
     <BirdsBackground />
-    <h1>Inspire</h1>
+    <h1 className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-9xl font-bold text-black z-10 font-greatVibes
+    bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent  inline-block'>Inspire</h1>
 
-    </div>
+    </div >
     <div  className="h-full min-h-screen overflow-y-auto">
   
   
