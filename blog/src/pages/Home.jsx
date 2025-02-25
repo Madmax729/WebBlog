@@ -65,7 +65,7 @@ const Home = () => {
 
 <pre className='text-4xl text-bold ml-40' >
 <h2>The powerful infrastructure</h2>
-<h2>behind your blog</h2>
+<h2>behind your blog!</h2>
 
 </pre>
 
