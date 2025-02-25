@@ -47,7 +47,7 @@ const Home = () => {
   </h2>
 <Link to= "/landing">
 <button className="bg-white hover:bg-gray-200 text-black font-bold text-md py-2 px-6 rounded-full mt-4">
-    Start Blogging
+    Start Blogging here
   </button>
 </Link>
  
