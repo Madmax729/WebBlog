@@ -17,14 +17,26 @@ const SignUp = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Add form submission logic here (e.g., make an API call)
-    console.log('Form submitted', formData);
+    // console.log('Form submitted', formData);
+
+    try {
+      const { email, password } = formData; // Assuming `formData` holds the user's input
+      await signUp.create({ emailAddress: email, password });
+      await signUp.prepareEmailAddressVerification();
+      
+      console.log("Sign-up successful. Please check your email for verification.");
+    } catch (error) {
+      console.error("Sign-up error:", error);
+    }
   };
 
   return (
+    
     <div className="flex justify-center items-center min-h-screen bg-gray-50">
+       
 <div className=''>
 <div className=" flex flex-row w-full max-w-4xl bg-white p-8 rounded-lg shadow-lg">
         {/* Form Section */}
@@ -121,10 +133,6 @@ const SignUp = () => {
         Sign Up
       </button>
           </form>
-
-          
-
-         
           
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full border-l border-gray-300">
             <div className="absolute top-1/2 -translate-y-1/2 w-full text-center text-gray-600 ">
@@ -175,6 +183,7 @@ const SignUp = () => {
         </div>
       </div>
 </div>
+
     </div>
   );
 };

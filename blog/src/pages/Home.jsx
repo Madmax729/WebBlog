@@ -142,12 +142,6 @@ Hii I'm Pixie how can i help you?
 
 </div>
 
-
-
-
-
-
-
 </div>
     
     

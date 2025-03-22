@@ -10,6 +10,7 @@ import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import Chat from "./pages/Chat"
 import Landing from "./pages/Landing"; 
+import CreatePost from "./pages/CreatePost";
 
 
 
@@ -45,8 +46,13 @@ const App = () => {
         },
         {
           path: "/landing",
-          element: <Landing />
+          element: <Landing />,
         },
+        {
+          path: "/createpost",
+          element: <CreatePost />
+        },
+       
         // {
         //   path: "/profile",
         //   element: <Profile />

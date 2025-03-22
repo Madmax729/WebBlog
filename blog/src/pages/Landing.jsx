@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { UserContext } from "../context/UserContext";
-import { Heart, Link } from 'lucide-react';
+import { User , Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Search from "../components/SearchBar"; // Adjust the path as needed
 import CreateBlog from '../components/CreateBlog';
 import { Plus } from "lucide-react";
 import ProfileDropdown from '../components/ProfileDropdown';
-import { User } from "lucide-react";
-// import { Link } from "react-router-dom";
+// import { User } from "lucide-react";
+import CreatePost from './CreatePost';
+import { Link } from "react-router-dom";
 // import Profile from './Profile';
 
 import { useContext } from "react";
@@ -116,23 +117,18 @@ const [showProfileDropdown, setShowProfileDropdown] = useState(false);
                   All
                 </button>
 
+                <Link to="/CreatePost" className="ml-auto">
+  <button className="flex items-center space-x-2 bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-700">
+    <Plus size={20} />
+    
+  </button>
+</Link>
 
-                <button className="flex items-center space-x-2 bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-700 ml-auto">
-            <Plus size={20} />
-            <span>Create</span>
-          </button>
               </div>
 
               
 
             </motion.nav>
-
-           
-
-
-
-           
-       
 
             <AnimatePresence mode="wait">
               <motion.div 
